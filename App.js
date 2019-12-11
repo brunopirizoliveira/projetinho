@@ -1,10 +1,18 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, Image, View, Dimensions, ScrollView } from 'react-native';
+import { FlatList, StyleSheet, Image, View, Dimensions, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import Grid from './Grid';
 
 export default class App extends Component {
-  
+
+  constructor() {
+    super();
+    this.openPopup = () => {
+      Alert.alert('Curtiu a foto');
+    }
+  }
+
   render() {  
+
     const width = Dimensions.get('screen').width;
     const fotos =[
       {id: 1, nome: 'Tata 1', src: "./images/Tata.jpeg"},
@@ -13,19 +21,34 @@ export default class App extends Component {
       {id: 4, nome: 'Tata 4', src: "./images/Tata.jpeg"},
     ];
 
+    const style = StyleSheet.create({
+      container: {margin: 20},
+      cabecalho: {margin: 10, flexDirection: 'row', alignItems: 'center'},
+      avatar: {marginRight: 15, borderRadius: 20, width: 40, height: 40, marginTop: 10},
+      foto: {width: width, height: width+100}
+    });    
+
     return (
 
       <FlatList
-        style = {{margin: 20}}
+        style = {style.container}
         keyExtractor = {item => item.id.toString()}
         data = {fotos}
         renderItem = { ({item}) => 
           <View key={item.id}>
-            <Grid name={item.nome} />
-            <Image 
-              source={ require("./images/Tata.jpeg") } 
-              style={{width: width, height: width+100}}
-            />
+            <View style={style.cabecalho}>
+              <Image 
+                source={ require("./images/Tata.jpeg") } 
+                style={style.avatar}
+              />
+              <Grid name={item.nome} />
+            </View>
+            <TouchableOpacity onPress={this.openPopup}> 
+              <Image 
+                source={ require("./images/Tata.jpeg") } 
+                style={style.foto}
+              />
+            </TouchableOpacity>
           </View>          
         }
       />
