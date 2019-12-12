@@ -2,20 +2,27 @@ import React, { Component } from 'react';
 import { View } from 'react-native';
 import Header from './Header';
 import Foto from './Foto';
+import Like from './Like';
 
 export default class Post extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        this.state = {
+            foto: this.props
+        }
     }
 
     render() 
     {
+        const { foto } = this.state;
+
         return(
 
-            <View key={this.props.keyValue}>
-                <Header item={this.props.foto} />
-                <Foto item={this.props.foto} />
+            <View key={ foto.keyValue }>
+                <Header item={ foto.item } />
+                <Foto item={ foto.item } />
+                <Like item={ foto.item } />
             </View> 
         )
     }

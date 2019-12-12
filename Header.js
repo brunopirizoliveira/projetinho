@@ -9,7 +9,7 @@ export default class Header extends Component {
 
     render() 
     {
-
+        const { item } = this.props;
         const style = StyleSheet.create({
             cabecalho: {margin: 10, flexDirection: 'row', alignItems: 'center'},
             avatar: {marginRight: 15, borderRadius: 20, width: 40, height: 40, marginTop: 10}
@@ -19,10 +19,10 @@ export default class Header extends Component {
 
             <View style={style.cabecalho}>
                 <Image 
-                    source={{ uri: this.props.item.urlPerfil }} 
+                    source={{ uri: item.urlPerfil }} 
                     style={style.avatar}
                 />
-                <Text>{this.props.item.loginUsuario}</Text>                
+                <Text>{ item.loginUsuario }</Text>                
             </View>
 
         )

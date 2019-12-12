@@ -12,6 +12,7 @@ export default class Foto extends Component {
 
     render()
     {
+        const { item } = this.props;
         const width  = Dimensions.get('screen').width;
         const height = width + 10;
         const style = StyleSheet.create({            
@@ -21,10 +22,9 @@ export default class Foto extends Component {
         
         return(
             
-
             <TouchableOpacity onPress={this.openPopup}> 
                 <Image 
-                    source={{ uri: this.props.item.urlFoto }} 
+                    source={{ uri: item.urlFoto }} 
                     style={style.foto}
                 />
             </TouchableOpacity>

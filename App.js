@@ -32,7 +32,7 @@ export default class App extends Component {
         keyExtractor = {item => item.id.toString()}
         data = {this.state.fotos}
         renderItem = { ({item}) => 
-          <Post foto={item} />       
+          <Post item={item} />       
         }
       />
 
