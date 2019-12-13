@@ -31,7 +31,9 @@ export default class Like extends Component {
     {         
         const style = StyleSheet.create({
             width: 25,
-            height: 25
+            height: 25,
+            marginTop: 5,
+            marginBottom: 2
         });
 
         return(
