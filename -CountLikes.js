@@ -6,11 +6,12 @@ export default class CountLikes extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            foto: {...this.props.item, likers: [{}]}
+            foto: {...this.props.item }
         }        
     }
 
-    exibeLikes(likers) {        
+    exibeLikes(likers) {
+        console.log(this.state.foto);
         if(likers.length > 0) {
             return <Text>{likers.length} {likers.length > 1 ? "curtidas" : "curtida"} </Text>
         }        

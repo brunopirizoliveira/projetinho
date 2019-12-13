@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import Header from './Header';
 import Foto from './Foto';
 import Like from './Like';
-import CountLikes from './CountLikes';
 import Comments from './Comments';
 
 export default class Post extends Component {
@@ -25,7 +24,6 @@ export default class Post extends Component {
                 <Header item={ foto.item } />
                 <Foto item={ foto.item } />
                 <Like item={ foto.item } />
-                <CountLikes item={ foto.item } />
                 <Comments item={ foto.item } />
             </View> 
         )
